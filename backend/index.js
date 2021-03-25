@@ -1,9 +1,9 @@
-const express = require ('express');
+const express = require('express');
 
-const app = express()
-
+const app = express();
+// get , post = criar, put= editar usuario, delete
 app.get('/', (request, response) => {
-return response.send('hello world')
-})
+    return response.json({message:' hello world'})
+});
+app.listen(3333);
 
-app.listen(3333)
