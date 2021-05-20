@@ -4,9 +4,9 @@ const routes = require('./routes')
 const app = express();
 
 
-mongoose.connect('mongodb+srv://oministack:oministack@cluster0.of40q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://oministack:oministack@cluster0.of40q.mongodb.net/oministack?retryWrites=true&w=majority', {
    useNewUrlParser: true,
-   useUnifiedTopology:true,
+   useUnifiedTopology: true,
 });
 app.use(express.json());//faz com q o express entenda o JSON
 app.use(routes);
@@ -22,6 +22,5 @@ app.use(routes);
 //route params app.delete('/users/:id', (request, response)console.log(request.params)
 //body: request.body (dados para criação pou alteração de um registro)
 
-app.listen(3333);         
-  
- 
+app.listen(3333);
+

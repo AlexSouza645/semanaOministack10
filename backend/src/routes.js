@@ -1,29 +1,17 @@
-
+const axios = require('axios');
 //importar o módulo de roteamento do express com {}
 const { Router } = require('express');
-const axios = require('axios');
-const Dev = require('./models/Dev')
+
+const DevController = require('./controllers/devController')
+const SearchController = require('./controllers/SearchController')
+
 const routes = Router();
-routes.post('/devs', async (request, response) => {
-    const { github_username, techs } = request.body;
+routes.get('/devs', DevController.index)
+routes.post('/devs', DevController.store)
 
-    const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`)
-    const { name = login, avatar_url, bio } = apiResponse.data
-    //if (!name){
-    //  name= apiResponse.data.login;
-    // console.log(name,avatar_url, bioo )
+routes.get('/search', SearchController.index );
+    
 
-    const techsArray = techs.split(',').map(tech => tech.trim())//trim remove espaçamentos
-
-const dev = await Dev.create({
-    github_username,
-    name,
-    avatar_url,
-    bio,
-    techs: techsArray,
-})
-
-    return response.json(dev);
-});
+   
 //exportar rotas
 module.exports = routes
