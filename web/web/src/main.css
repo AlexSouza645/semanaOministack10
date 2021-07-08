@@ -31,8 +31,9 @@ li.dev-item header .user-info{
     margin-left: 10px;
 }
 
+/*layout responsivo*/
 @media(max-width:650px){
-    main-ul{
+    main ul{
         grid-template-columns: 1fr;
     }
 }
