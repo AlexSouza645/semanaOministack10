@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');// biblioteca que interliga ao mongodb
+const cors = require ('cors')
 const routes = require('./routes')
 const app = express();
 
@@ -10,6 +11,7 @@ mongoose.connect('mongodb+srv://oministack:oministack@cluster0.of40q.mongodb.net
 });
 app.use(express.json());//faz com q o express entenda o JSON
 app.use(routes);
+app.use(cors())
 
 //app.get('/',(request, response)=>{
 // return response.send('hello world')
